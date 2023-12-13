@@ -17,7 +17,7 @@ This repo is pytorch implementation of Audio-Grounded Contrastive Learning (ACL)
 
 Some of these codes are based on [AudioToken](https://github.com/guyyariv/AudioToken), [BEATs](https://github.com/microsoft/unilm/tree/master/beats), [TCL](https://github.com/kakaobrain/tcl).
 
-Hugging Face demo will be available soon.
+Demo: [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/swimmiing/ACL-SSL-zeroshot-demo)
 
 ## Required packages
 
