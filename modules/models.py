@@ -289,6 +289,6 @@ class ACL(nn.Module):
         Args:
             model_dir (str): Directory to load the model from.
         """
-        ckp = torch.load(model_dir)
+        ckp = torch.load(model_dir, map_location=self.device)
         self.audio_proj.load_state_dict(ckp['audio_proj'])
         self.masker_i.load_state_dict(ckp['masker_i'])
