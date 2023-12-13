@@ -41,6 +41,13 @@ $ pip install tqdm
     - AVSBench: [[Link]](http://www.avlbench.opennlplab.cn/dataset/avsbench)
     - Extended VGG-SS/Flickr: [[Link]](https://github.com/stoneMo/SLAVC)
 
+## Model preparation
+
+Downloading Pretrained Model (Audio backbone) in pretrain folder
+- BEATs: https://github.com/microsoft/unilm/tree/master/beats
+  - BEATs_iter3_plus_AS2M_finedtuned_on_AS2M_cpt2.pt
+
+
 ## Training
 
 - Ensure that you check the .sh files and set the `$ export CUDA_VISIBLE_DEVICES=”**”` according to your hardware setup.
