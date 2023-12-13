@@ -36,6 +36,7 @@ $ pip install tensorboard
 $ pip transformers==4.25.1
 $ pip install opencv-python
 $ pip install tqdm
+$ pip install scikit-learn
 
 ```
 

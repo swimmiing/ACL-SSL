@@ -8,4 +8,5 @@ python Test_PTModels.py \
 --vggss_path {put dataset directory} \
 --flickr_path {put dataset directory} \
 --avs_path {put dataset directory} \
+--save_path {put dataset directory} \
 --epochs None

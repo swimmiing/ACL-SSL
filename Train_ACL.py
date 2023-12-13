@@ -5,7 +5,6 @@ import sys
 import time
 import datetime
 import yaml
-import clip
 import shutil
 import argparse
 
@@ -205,7 +204,7 @@ def main(model_name, exp_name, train_config_name, data_path_dict, save_path):
 
             with autocast_fn():
                 # Train step
-                placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(module.device)
+                placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
                 placeholder_tokens = placeholder_tokens.repeat((train_dataloader.batch_size, 1))
                 audio_driven_embedding = module.encode_audio(audios.to(module.device), placeholder_tokens,
                                                              text_pos_at_prompt, prompt_length).half()

@@ -9,6 +9,7 @@ from modules.BEATs.BEATs import BEATs, BEATsConfig
 from modules.AudioToken.embedder import FGAEmbedder
 from modules.CLIPSeg.clipseg_for_audio import CLIPSeg
 from modules.mask_utils import ImageMasker, FeatureMasker
+from transformers import AutoTokenizer
 
 
 class ACL(nn.Module):
@@ -37,6 +38,9 @@ class ACL(nn.Module):
         cfg = BEATsConfig(checkpoint['cfg'])
         self.audio_backbone = BEATs(cfg)
 
+        # Text Tokenizer for placeholder prompt
+        self.tokenizer = AutoTokenizer.from_pretrained("CIDAS/clipseg-rd64-refined")
+
         # Init audio projection layer
         self.audio_proj = FGAEmbedder(input_size=self.args.audio_proj.input_size * 3,
                                       output_size=self.args.audio_proj.output_size)
@@ -62,6 +66,20 @@ class ACL(nn.Module):
         self.audio_proj.to(device=self.device)
         self.masker_i.to(self.device)
         self.masker_f.to(self.device)
+
+    def get_placeholder_token(self, prompt_text: str):
+        """
+        Get placeholder token from prompt text
+
+        Args:
+            prompt_text (str): prompt text without '{}'
+
+        Returns:
+            CLIPTokenizerFast result with prompt text
+        """
+        placeholder_token = self.tokenizer(prompt_text, return_tensors="pt").data['input_ids']
+        placeholder_token = F.pad(placeholder_token, (0, 77 - placeholder_token.shape[-1])).to(self.device)
+        return placeholder_token
 
     def train(self, bool: bool = True):
         """

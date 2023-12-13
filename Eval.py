@@ -1,6 +1,5 @@
 import torch
 import os
-import clip
 import cv2
 
 import numpy as np
@@ -67,7 +66,7 @@ def eval_vggss_agg(
         labels, name = data['labels'], data['ids']
 
         # Inference
-        placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(model.device)
+        placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
         placeholder_tokens = placeholder_tokens.repeat((test_dataloader.batch_size, 1))
         audio_driven_embedding = model.encode_audio(audios.to(model.device), placeholder_tokens, text_pos_at_prompt,
                                                     prompt_length)
@@ -170,7 +169,7 @@ def eval_avsbench_agg(
         images, audios, gts, labels, name = data['images'], data['audios'], data['gts'], data['labels'], data['ids']
 
         # Inference
-        placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(model.device)
+        placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
         placeholder_tokens = placeholder_tokens.repeat((test_dataloader.batch_size, 1))
         audio_driven_embedding = model.encode_audio(audios.to(model.device), placeholder_tokens, text_pos_at_prompt,
                                                     prompt_length)
@@ -268,7 +267,7 @@ def eval_flickr_agg(
         labels, name = data['labels'], data['ids']
 
         # Inference
-        placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(model.device)
+        placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
         placeholder_tokens = placeholder_tokens.repeat((test_dataloader.batch_size, 1))
         audio_driven_embedding = model.encode_audio(audios.to(model.device), placeholder_tokens, text_pos_at_prompt,
                                                     prompt_length)
@@ -364,7 +363,7 @@ def eval_exvggss_agg(
         labels, name = data['labels'], data['ids']
 
         # Inference
-        placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(model.device)
+        placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
         placeholder_tokens = placeholder_tokens.repeat((test_dataloader.batch_size, 1))
         audio_driven_embedding = model.encode_audio(audios.to(model.device), placeholder_tokens, text_pos_at_prompt,
                                                     prompt_length)
@@ -446,7 +445,7 @@ def eval_exflickr_agg(
         labels, name = data['labels'], data['ids']
 
         # Inference
-        placeholder_tokens = clip.tokenize(prompt_template.replace('{}', '')).to(model.device)
+        placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
         placeholder_tokens = placeholder_tokens.repeat((test_dataloader.batch_size, 1))
         audio_driven_embedding = model.encode_audio(audios.to(model.device), placeholder_tokens, text_pos_at_prompt,
                                                     prompt_length)
