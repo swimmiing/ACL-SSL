@@ -1,6 +1,13 @@
 # Audio-Grounded Contrastive Learning (WACV’24)
 
-Official pytorch implementation of the WACV'24 paper [“Can CLIP Help Sound Source Localization?”](https://arxiv.org/abs/2311.04066)
+Official pytorch implementation of out paper:
+
+>  **[Can CLIP Help Sound Source Localization?](https://arxiv.org/abs/2311.04066)**  
+>
+> [Sooyoung Park*](https://sites.google.com/view/sooyoungpark), [Arda Senocak*](https://ardasnck.github.io/), [Joon Son Chung](https://mmai.io/joon/) (* Equal Contribution)
+>
+>  WACV 2024
+
 
 ## Introduction
 
@@ -8,7 +15,7 @@ Official pytorch implementation of the WACV'24 paper [“Can CLIP Help Sound Sou
 
 This repo is pytorch implementation of Audio-Grounded Contrastive Learning (ACL). Code is very simple and easy to understand fastly.
 
-Some of these codes are based on [AudioToken](https://github.com/guyyariv/AudioToken), [BEATs](https://github.com/microsoft/unilm/tree/master/beats).
+Some of these codes are based on [AudioToken](https://github.com/guyyariv/AudioToken), [BEATs](https://github.com/microsoft/unilm/tree/master/beats), [TCL](https://github.com/kakaobrain/tcl).
 
 Hugging Face demo will be available soon.
 
