@@ -1,0 +1,45 @@
+model: ACL
+
+common:
+  train_data: vggss
+  epoch: 20
+  batch_size: 8
+  input_resolution: 352
+  num_workers: 4
+  seed: 0
+  loss:
+    - acl_i
+    - acl_f
+    - area_reg
+  loss_w:
+    - 1
+    - 1
+    - 1
+
+optimizer: Adam
+scheduler: null
+amp: True
+
+optim_conf:
+  Adam:
+    module_path: torch.optim
+    module_name: Adam
+    lr: 0.0001
+    weight_decay: 0.0001
+
+  AdamW:
+    module_path: torch.optim
+    module_name: AdamW
+    lr: 0.001
+
+  SGDR:
+    module_path: torch.optim
+    module_name: SGD
+    lr: 0.5
+    weight_decay: 0.00001
+
+sched_conf:
+  Cosine:
+    module_path: torch.optim.lr_scheduler
+    module_name: CosineAnnealingLR
+    eta_ratio: 0.0

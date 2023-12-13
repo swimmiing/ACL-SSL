@@ -1,0 +1,89 @@
+model:
+  clip: ViT16
+  vision_backbone: null
+  audio_backbone: BEATs
+  audio_proj: FGA512
+
+pretrain:
+  vision_backbone: null
+  audio_backbone: ./pretrain/BEATs_iter3_plus_AS2M_finetuned_on_AS2M_cpt2.pt
+  audio_proj: null
+
+fga_conf:
+  FGA:
+    input_size: 768
+    output_size: 768
+
+  FGA512:
+    input_size: 768
+    output_size: 512
+
+clip_conf:
+  RN50:
+    name: RN50
+    vision:
+      image_resolution: 224
+      vision_layers: [3, 4, 6, 3]
+      vision_width: 64
+      heads: 8
+      vision_patch_size: null
+    text:
+      transformer_layers: 12
+      transformer_width: 512
+      transformer_heads: 8
+      vocab_size: 49408
+      context_length: 77
+    embedding_dim: 1024
+
+  ViT16:
+    name: ViT-B/16
+    vision:
+      image_resolution: 224
+      vision_layers: 12
+      vision_width: 768
+      heads: 12
+      vision_patch_size: 16
+    text:
+      transformer_layers: 12
+      transformer_width: 512
+      transformer_heads: 8
+      vocab_size: 49408
+      context_length: 77
+    embedding_dim: 512
+
+  ViT14:
+    name: ViT-L/14
+    vision:
+      image_resolution: 224
+      vision_layers: 24
+      vision_width: 1024
+      heads: 16
+      vision_patch_size: 14
+    text:
+      transformer_layers: 12
+      transformer_width: 768
+      transformer_heads: 12
+      vocab_size: 49408
+      context_length: 77
+    embedding_dim: 768
+
+vision_backbone_conf:
+  maskclip_plus_rn50_512:
+    name: maskclip_plus_rn50_512
+    image_resolution: 512
+    vision_layers: [ 3, 4, 6, 3 ]
+    vision_width: 2048
+    aspp:
+      dilations: [ 6, 12, 18, 24 ]
+      in_channels: 2048
+      channels: 512
+
+  maskclip_plus_rn101_512:
+    name: maskclip_plus_rn101_512
+    image_resolution: 512
+    vision_layers: [ 3, 4, 23, 3 ]
+    vision_width: 2048
+    aspp:
+      dilations: [ 6, 12, 18, 24 ]
+      in_channels: 2048
+      channels: 1024
