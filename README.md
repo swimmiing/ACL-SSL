@@ -82,7 +82,7 @@ $ sh Test_PTModels
 
 ## **Citation**
 
-If you use this project, please cite the relevant original publications for the models and datasets, and cite this project as:
+If you use this project, please cite this project as:
 
 ```latex
 @inproceedings{park2023clip,
