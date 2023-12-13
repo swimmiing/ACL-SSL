@@ -4,8 +4,6 @@ Official pytorch implementation of the WACV'24 paper [“Can CLIP Help Sound Sou
 
 ## Introduction
 
----
-
 This repo is pytorch implementation of Audio-Grounded Contrastive Learning (ACL). Code is very simple and easy to understand fastly.
 
 Some of these codes are based on [AudioToken](https://github.com/guyyariv/AudioToken), [BEATs](https://github.com/microsoft/unilm/tree/master/beats).
@@ -14,15 +12,11 @@ Hugging Face demo will be available soon.
 
 ## Required packages
 
----
-
 - Python = 3.10.8
 - Pytorch = 1.13.0
 - transformers = 4.25.1
 
 ### Installation
-
----
 
 ```bash
 $ conda install -c nvidia cudatoolkit=11.7
@@ -38,8 +32,6 @@ $ pip install tqdm
 
 ## Data preparation
 
----
-
 **Important Note:** All audio samples must be converted to 16kHz, and for detailed instructions, refer to the readme in each dataset-specific directory.
 
 - **Dataset**
@@ -50,8 +42,6 @@ $ pip install tqdm
     - Extended VGG-SS/Flickr: [[Link]](https://github.com/stoneMo/SLAVC)
 
 ## Training
-
----
 
 - Ensure that you check the .sh files and set the `$ export CUDA_VISIBLE_DEVICES=”**”` according to your hardware setup.
 - Make sure that `—model_name` corresponds to the configuration file located at `./config/model/{-model_name}.yaml`.
@@ -66,8 +56,6 @@ $ sh Distributed_Experiment.sh. # For multi-GPU setup (DDP)
 
 ## Test
 
----
-
 - Before testing, please review the .sh file and set the `$ export CUDA_VISIBLE_DEVICES=”**”` environment variable according to your hardware configuration.
 - Ensure that the `—model_name` parameter corresponds to the configuration file located at `./config/model/{-model_name}.yaml`.
 - Model files (.pth) located in the directory `{—save_path}/{-model_name}_{-exp_name}/Param_{-epochs}.pth` will be used for testing.
@@ -80,16 +68,12 @@ $ sh Test_PTModels
 
 ## P**retrained models**
 
----
-
 **Important Note:** After downloading the Param_best.pth file, move it to the directory `{—save_path}/{-model_name}_{-exp_name}/` before use.
 
 - VGG-Sound 144k trained model: [[Link]](https://drive.google.com/file/d/1XnVrBES3IKjAcV0uCkvbIdEEclcOYJoR/view?usp=drive_link)
   - This model was trained using a 2-GPU setup.
 
 ## **Citation**
-
----
 
 If you use this project, please cite the relevant original publications for the models and datasets, and cite this project as:
 
