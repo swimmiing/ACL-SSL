@@ -4,6 +4,8 @@ Official pytorch implementation of the WACV'24 paper [“Can CLIP Help Sound Sou
 
 ## Introduction
 
+<img src="./asset/summary_wacv.png" alt="image" width="50%">
+
 This repo is pytorch implementation of Audio-Grounded Contrastive Learning (ACL). Code is very simple and easy to understand fastly.
 
 Some of these codes are based on [AudioToken](https://github.com/guyyariv/AudioToken), [BEATs](https://github.com/microsoft/unilm/tree/master/beats).
