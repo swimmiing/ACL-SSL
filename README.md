@@ -43,7 +43,7 @@ $ pip install tqdm
 
 ## Model preparation
 
-Downloading Pretrained Model (Audio backbone) in pretrain folder
+Downloading pretrained model (audio backbone) in pretrain folder
 - BEATs: https://github.com/microsoft/unilm/tree/master/beats
   - BEATs_iter3_plus_AS2M_finedtuned_on_AS2M_cpt2.pt
 
@@ -57,7 +57,7 @@ Downloading Pretrained Model (Audio backbone) in pretrain folder
 - Choose one of the following methods to initiate training:
 
 ```bash
-$ sh Experiment_Temp.sh. # For single GPU setup
+$ sh SingleGPU_Experiment.sh. # For single GPU setup
 $ sh Distributed_Experiment.sh. # For multi-GPU setup (DDP)
 ```
 
