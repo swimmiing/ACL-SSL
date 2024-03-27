@@ -195,7 +195,7 @@ def main(model_name, exp_name, train_config_name, data_path_dict, save_path):
             train_start_time_per_epoch = time.time()
 
         pbar = tqdm(train_dataloader, desc=f"Train Epoch {epoch}...", disable=(rank != 0))
-        sampler.set_epoch(epoch)
+        sampler.set_epoch(epoch) if use_ddp else None
         for step, data in enumerate(pbar):
             images, audios, labels = data['images'], data['audios'], data['labels']
 
@@ -204,7 +204,7 @@ def main(model_name, exp_name, train_config_name, data_path_dict, save_path):
 
             with autocast_fn():
                 # Train step
-                placeholder_tokens = model.get_placeholder_token(prompt_template.replace('{}', ''))
+                placeholder_tokens = module.get_placeholder_token(prompt_template.replace('{}', ''))
                 placeholder_tokens = placeholder_tokens.repeat((train_dataloader.batch_size, 1))
                 audio_driven_embedding = module.encode_audio(audios.to(module.device), placeholder_tokens,
                                                              text_pos_at_prompt, prompt_length).half()
