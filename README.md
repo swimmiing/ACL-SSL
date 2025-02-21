@@ -89,6 +89,7 @@ $ sh Test_PTModels
 
 - VGG-Sound 144k trained model: [[Link]](https://drive.google.com/file/d/1XnVrBES3IKjAcV0uCkvbIdEEclcOYJoR/view?usp=drive_link)
   - This model was trained using a 2-GPU setup.
+  - The reported numbers are the highest, with performance varying across different seeds, and the provided .pth link corresponds to the checkpoint used for the highest result.
 
 ## **Citation**
 
