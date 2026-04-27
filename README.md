@@ -1,4 +1,4 @@
-# Audio-Grounded Contrastive Learning (WACV’24)
+# Audio-Grounded Contrastive Learning (WACV’24, IJCV’26)
 
 Official pytorch implementation of out paper:
 
@@ -8,10 +8,15 @@ Official pytorch implementation of out paper:
 >
 >  WACV 2024
 
+>  **[Hearing and Seeing Through CLIP: A Framework for Self-Supervised Sound Source Localization](https://link.springer.com/article/10.1007/s11263-025-02687-x)**  
+>
+> [Sooyoung Park*](https://sites.google.com/view/sooyoungpark), [Arda Senocak*](https://ardasnck.github.io/), [Joon Son Chung](https://mmai.io/joon/) (* Equal Contribution)
+>
+>  IJCV 2026
 
 ## Introduction
 
-<img src="./asset/summary_wacv.png" alt="image" width="100%">
+<img src="./asset/summary_ijcv.png" alt="image" width="100%">
 
 This repo is pytorch implementation of Audio-Grounded Contrastive Learning (ACL). Code is very simple and easy to understand fastly.
 
@@ -90,16 +95,29 @@ $ sh Test_PTModels
 - VGG-Sound 144k trained model: [[Link]](https://drive.google.com/file/d/1XnVrBES3IKjAcV0uCkvbIdEEclcOYJoR/view?usp=drive_link)
   - This model was trained using a 2-GPU setup.
   - The reported numbers are the highest, with performance varying across different seeds, and the provided .pth link corresponds to the checkpoint used for the highest result.
+- Model trained with AV Caption (IJCV version): [[Link]](https://drive.google.com/file/d/1YqTlCsA4XO_vaNTOm-vnV2B9Xge4Dln6/view?usp=sharing)
+
 
 ## **Citation**
 
 If you use this project, please cite this project as:
 
 ```latex
-@inproceedings{park2023clip,
-      title={Can CLIP Help Sound Source Localization?}, 
-      author={Sooyoung Park and Arda Senocak and Joon Son Chung},
-      journal = {arXiv preprint arXiv:2311.04066},
-      year={2023},
+@inproceedings{park2024can,
+  title={Can clip help sound source localization?},
+  author={Park, Sooyoung and Senocak, Arda and Chung, Joon Son},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision},
+  year={2024}
+}
+
+@article{park2026hearing,
+  title={Hearing and seeing through clip: A framework for self-supervised sound source localization},
+  author={Park, Sooyoung and Senocak, Arda and Chung, Joon Son},
+  journal={International Journal of Computer Vision},
+  volume={134},
+  number={4},
+  pages={179},
+  year={2026},
+  publisher={Springer}
 }
 ```
